@@ -3,6 +3,7 @@ package com.techprimers.jpa.springjpahibernateexample.resource;
 import com.techprimers.jpa.springjpahibernateexample.model.Users;
 import com.techprimers.jpa.springjpahibernateexample.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,4 +44,11 @@ public class UsersResource {
 
         return usersRepository.save(users);
     }
+    
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") final Integer id) {
+    	usersRepository.delete(id);
+    }
+    
+    
 }
